@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بەشی مینوو - پڕۆژەکان</title>
+  <style>
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+    
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+    }
+    
+    /* Root Variables */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #2980b9;
+      --accent-color: #e67e22;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --background-color: #f9f9f9;
+    }
+    
+    /* Global Styles */
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      direction: rtl;
+      line-height: 1.6;
+      padding: 10px;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+    
+    /* Header */
+    header {
+      position: relative;
+      background-color: var(--primary-color);
+      background-image: url('photo_1_2025-02-24_22-13-18.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: multiply;
+      padding: 2rem 0;
+      text-align: center;
+      color: #fff;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    
+    header .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-color);
+      opacity: 0.5;
+      z-index: 0;
+      border-radius: 8px;
+    }
+    
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Menu Section */
+    .menu-section {
+      padding: 1rem 0;
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .project-card {
+      background-color: var(--light-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    .project-card a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-image {
+      position: relative;
+      padding-top: 60%; /* Aspect ratio 16:10 */
+      overflow: hidden;
+    }
+    
+    .project-card img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .project-card:hover img {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+    
+    .project-info {
+      padding: 1.2rem;
+      background-color: #fff;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-info h3 {
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .project-info p {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      margin-bottom: 0;
+      flex-grow: 1;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--dark-color);
+      border-top: 1px solid #ddd;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      html {
+        font-size: 15px;
+      }
+      
+      body {
+        padding: 8px;
+      }
+      
+      .container {
+        padding: 0 8px;
+      }
+      
+      header {
+        padding: 1.5rem 0;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      html {
+        font-size: 14px;
+      }
+      
+      .project-image {
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+      }
+      
+      .project-info h3 {
+        font-size: 1.2rem;
+      }
+      
+      .project-info p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* Fix for touch devices */
+    @media (hover: none) {
+      .project-card:hover {
+        transform: none;
+      }
+      
+      .project-card:active {
+        transform: translateY(-2px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>پڕۆژەکانم</h1>
+    </div>
+  </header>
+  
+  <section class="menu-section">
+    <div class="container">
+      <div class="project-grid">
+        <!-- پڕۆژەی یەکەم -->
+        <div class="project-card">
+          <a href="Home System/Home System_ku.html">
+            <div class="project-image">
+              <img src="Home System/20241205_121612.jpg" alt="پڕۆژەی یەکەم">
+            </div>
+            <div class="project-info">
+              <h3>سیستەمی ماڵەوە</h3>
+              <p>پڕۆژەی سیستەمی مالەوە یەکێکە لە پڕۆژە گرنگەکان ، ئەم ماڵە لە چوار پڕۆژەی بچوک پێکدێت، ئێمە هەر چوار پڕۆژەکەمان لێکداوە و پڕۆژەیەکی گەورەترمان دروست کردووە.</p>
+            </div>
+          </a>
+        </div>
+        <!-- پڕۆژەی دووەم -->
+        <div class="project-card">
+          <a href="Water level monitoring system/Water level_ku.html">
+            <div class="project-image">
+              <img src="Water level monitoring system/IMG_20250309_232800.jpg" alt="پڕۆژەی دووەم">
+            </div>
+            <div class="project-info">
+              <h3>پرۆژەی چاودێری ئاستی ئاو</h3>
+              <p>چارەسەرێکی سادە و کارا بۆ چاودێریکردنی ئاستی ئاو لە تانکیدا، بۆ ماڵەکان لە کوردستان.</p>
+            </div>
+          </a>
+        </div>
+        
+        <!-- پڕۆژەی سێیەم -->
+        <div class="project-card">
+          <a href="Laser Security System Project/Laser Security_ku.html">
+            <div class="project-image">
+              <img src="Laser Security System Project/photo_1_2025-03-20_21-53-30.jpg" alt="پڕۆژەی دووەم">
+            </div>
+            <div class="project-info">
+              <h3>سیستەمی پاراستنی لەیزەر</h3>
+              <p>سیستەمێکی ئاسایشی پێشکەوتوو بە تەکنۆلۆژیای لەیزەر، NFC و RTC بۆ پاراستنی ماڵ و شوێنەکان</p>
+            </div>
+          </a>
+        </div>
+        <!-- دەتوانیت پڕۆژەی زیاتر لێرە زیاد بکەیت -->
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
