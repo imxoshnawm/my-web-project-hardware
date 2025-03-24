@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پڕۆژەی چاودێری ئاستی ئاو</title>
+    <style>
+        /* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Root Variables */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #3498db;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --text-color: #333;
+    --background-color: #f9f9f9;
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    direction: rtl;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header - Updated with background image */
+header {
+    background: linear-gradient(rgba(1, 2, 3, 0.5), rgba(1, 2, 3, 0.5)), url('IMG_20250309_232800.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+}
+
+/* Features Section */
+.features {
+    background-color: white;
+    padding: 3rem 0;
+}
+.features h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.feature-card {
+    background-color: var(--light-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+.feature-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* Section */
+.section {
+    padding: 3rem 0;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--dark-color);
+}
+.two-column {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+.column {
+    flex: 1;
+    min-width: 300px;
+}
+.column img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Steps List */
+.steps {
+    counter-reset: step-counter;
+    list-style: none;
+    margin: 2rem 0;
+}
+.step-item {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-right: 3rem;
+}
+.step-item:before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--primary-color);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Connection Table */
+.connection-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+.connection-table th, .connection-table td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: right;
+}
+.connection-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+.connection-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+/* Diagram */
+.diagram {
+    margin: 2rem 0;
+    text-align: center;
+}
+.diagram img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Call To Action */
+.cta {
+    background: var(--accent-color);
+    text-align: center;
+    padding: 4rem 0;
+    color: white;
+}
+.cta h2 {
+    margin-bottom: 1rem;
+}
+.cta p {
+    margin-bottom: 1rem;
+}
+.cta-button {
+    display: inline-block;
+    background-color: white;
+    color: var(--accent-color);
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Code Container and Syntax Highlighting */
+.code-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    direction: ltr;
+    text-align: left;
+}
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2c3e50;
+    color: white;
+}
+.code-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.copy-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+.copy-btn:hover {
+    background-color: #2980b9;
+}
+.code-content {
+    padding: 20px;
+    overflow-x: auto;
+    background-color: #282c34;
+    color: #abb2bf;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+.line {
+    display: block;
+    white-space: pre;
+}
+.keyword {
+    color: #c678dd;
+}
+.comment {
+    color: #98c379;
+}
+.string {
+    color: #e5c07b;
+}
+.variable {
+    color: #61afef;
+}
+.number {
+    color: #d19a66;
+}
+.operator {
+    color: #56b6c2;
+}
+.function {
+    color: #98c379;
+}
+
+/* Developer Profile Section */
+.developer-section {
+    padding: 3rem 0;
+    background-color: white;
+    text-align: center;
+}
+.profile-card {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: white;
+}
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--primary-color);
+}
+.profile-name {
+    color: var(--dark-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.profile-title {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.profile-contact {
+    color: #666;
+    margin-bottom: 1rem;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    .two-column {
+        flex-direction: column;
+    }
+}
+
+.code-content {
+                padding: 15px;
+                overflow-x: auto;
+                max-height: 400px;
+                margin: 0;
+            }
+           
+    </style>
+</head>
+<body>
+   
+    <header>
+        <div class="container hero">
+            <h1>پڕۆژەی ئاسایشی لەیزەری</h1>
+            <p>سیستەمێکی ئاسایشی پێشکەوتوو بە تەکنۆلۆژیای لەیزەر، NFC و RTC بۆ پاراستنی ماڵ و شوێنەکان</p>
+        </div>
+    </header>
+    
+    <section class="features">
+        <div class="container">
+            <h2>بۆچی ئەم پڕۆژەیە گرنگە؟</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>پاراستنی پێشکەوتوو</h3>
+                    <p>سیستەمەکە بە لەیزەر کار دەکات و دەستبەجێ دەست نیشانی هەر جووڵەیەک دەکات کە ببێتە هۆی پچڕانی لەیزەرەکە.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>خوێندنەوەی کارتی NFC</h3>
+                    <p>تەنها کەسانی ڕێگەپێدراو دەتوانن بە کارتی NFC سیستەمەکە ناچالاک بکەن و بچنە ژوورەوە.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>تۆمارکردنی ڕووداوەکان</h3>
+                    <p>هەموو ڕووداوەکان تۆمار دەکرێن لەگەڵ کات و بەروار، دەتوانیت بە ئاسانی بیانبینیتەوە.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>کاتژمێری ڕاستەقینە (RTC)</h3>
+                    <p>سیستەمەکە کاتژمێری ڕاستەقینەی هەیە و کاتی دروست لەگەڵ هەموو تۆمارەکان دەپارێزێت.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">سوودەکانی سیستەمی ئاسایشی لەیزەری</h2>
+            <div class="two-column">
+                <div class="column">
+                    <img src="photo_1_2025-03-20_21-53-30.jpg" alt="Laser Security System Benefits">
+                </div>
+                <div class="column">
+                    <ul class="steps">
+                        <li class="step-item"><span class="highlight">ئاسایشی بەهێز</span>: هەر جووڵەیەک کە لەیزەرەکە بپچڕێنێت دەستبەجێ ئاگادارکردنەوە دەردەکات</li>
+                        <li class="step-item"><span class="highlight">بەکارهێنانی ئاسان</span>: بە کارتی NFC دەتوانرێت سیستەمەکە چالاک و ناچالاک بکرێت</li>
+                        <li class="step-item"><span class="highlight">تۆماری تەواو</span>: هەموو ڕووداوەکان لەگەڵ کات و بەروار تۆمار دەکرێن</li>
+                        <li class="step-item"><span class="highlight">دەستنیشانی دەستبەجێ</span>: دەنگ و ڕووناکی ئاگادارکردنەوە بۆ هەر پێشێلکاریەک</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">چۆن کار دەکات؟</h2>
+            <div class="two-column">
+                <div class="column">
+                    <ol class="steps">
+                        <li class="step-item">هەستەوەری LDR بەردەوام چاودێری تیشکی لەیزەر دەکات</li>
+                        <li class="step-item">کاتێک پچڕان ڕوودەدات، سیستەمی ئاگادارکردنەوە چالاک دەبێت</li>
+                        <li class="step-item">تەنها کارتی NFC ڕێگەپێدراو دەتوانێت سیستەمەکە ناچالاک بکات</li>
+                        <li class="step-item">هەموو ڕووداوەکان لە EEPROM تۆمار دەکرێن و دەتوانرێت بە جۆیستیک ببینرێنەوە</li>
+                    </ol>
+                </div>
+                <div class="column">
+                    <img src="laser_security_diagram.jpg" alt="How laser security system works">
+                </div>
+            </div>
+            
+            <div class="diagram">
+                <h3>دایەگرامی پڕۆژە</h3>
+                <img src="laser_security_diagram_full.jpg" alt="Laser security system diagram">
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">پارچەکان و چۆنیەتی بەستن</h2>
+            <h3>پارچەکان:</h3>
+            <ul class="steps">
+                <li class="step-item">ئاردوینۆ (Arduino Uno) یان (Arduino Nano)</li>
+                <li class="step-item">شاشەی LCD 2x16 (جۆری I2C)</li>
+                <li class="step-item">هەستەوەری LDR (Light Dependent Resistor)</li>
+                <li class="step-item">خوێنەوەی کارتی RFID/NFC (MFRC522)</li>
+                <li class="step-item">کاتژمێری ڕاستەقینە DS1302 RTC</li>
+                <li class="step-item">Joystick</li>
+                <li class="step-item">Buzzer</li>
+                <li class="step-item">LED سوور و سەوز</li>
+                <li class="step-item">Lezer</li>
+            </ul>
+            
+            <h3>چۆنیەتی بەستن:</h3>
+            <table class="connection-table">
+                <thead>
+                    <tr>
+                        <th>پارچە</th>
+                        <th>پین</th>
+                        <th>بەستن بە ئاردوینۆ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">شاشەی LCD (I2C)</td>
+                        <td>VCC</td>
+                        <td>5V</td>
+                    </tr>
+                    <tr>
+                        <td>GND</td>
+                        <td>GND</td>
+                    </tr>
+                    <tr>
+                        <td>SDA</td>
+                        <td>A4</td>
+                    </tr>
+                    <tr>
+                        <td>SCL</td>
+                        <td>A5</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">هەستەوەری LDR</td>
+                        <td>پین 1</td>
+                        <td>A0 (لەگەڵ resistor)</td>
+                    </tr>
+                    <tr>
+                        <td>پین 2</td>
+                        <td>GND</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">RFID/NFC (MFRC522)</td>
+                        <td>SDA</td>
+                        <td>پین 10</td>
+                    </tr>
+                    <tr>
+                        <td>SCK</td>
+                        <td>پین 13</td>
+                    </tr>
+                    <tr>
+                        <td>MOSI</td>
+                        <td>پین 11</td>
+                    </tr>
+                    <tr>
+                        <td>MISO</td>
+                        <td>پین 12</td>
+                    </tr>
+                    <tr>
+                        <td>RST</td>
+                        <td>پین 9</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">RTC DS1302</td>
+                        <td>CLK</td>
+                        <td>پین 3</td>
+                    </tr>
+                    <tr>
+                        <td>DAT</td>
+                        <td>پین 4</td>
+                    </tr>
+                    <tr>
+                        <td>RST</td>
+                        <td>پین 5</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">جۆیستیک</td>
+                        <td>X</td>
+                        <td>A1</td>
+                    </tr>
+                    <tr>
+                        <td>Y</td>
+                        <td>A2</td>
+                    </tr>
+                    <tr>
+                        <td>SW</td>
+                        <td>پین 2</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">بێزەر</td>
+                        <td>پین +</td>
+                        <td>پین 8</td>
+                    </tr>
+                    <tr>
+                        <td>پین -</td>
+                        <td>GND</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">LED سوور</td>
+                        <td>پین +</td>
+                        <td>پین 6</td>
+                    </tr>
+                    <tr>
+                        <td>پین -</td>
+                        <td>GND</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">LED سەوز</td>
+                        <td>پین +</td>
+                        <td>پین 7</td>
+                    </tr>
+                    <tr>
+                        <td>پین -</td>
+                        <td>GND</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <section class="section" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">ڤیدیۆی چۆنیەتی کارکردن</h2>
+            <div style="text-align: center;">
+                <video controls style="width: 80%; max-width: 800px; border-radius: 20px;">
+                    <source src="laser_security_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-title">کۆدی ئاردوینۆ</span>
+                    <button id="copyButton" class="copy-btn">کۆپی کردنی کۆد</button>
+                </div>
+                <pre class="code-content" id="codeContent">
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;EEPROM.h&gt;
+#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+#include &lt;string.h&gt;
+// Add DS1302 RTC library
+#include &lt;ThreeWire.h&gt;
+#include &lt;RtcDS1302.h&gt;
+
+// پینەکان
+#define LDR_PIN A0
+#define JOYSTICK_X_PIN A1
+#define JOYSTICK_Y_PIN A2
+#define JOYSTICK_SW_PIN 2
+#define BUZZER_PIN 8
+#define RST_PIN 9
+#define SS_PIN 10
+#define RED_LED_PIN 6
+#define GREEN_LED_PIN 7
+
+// RTC پینەکان
+#define RTC_CLK_PIN 3
+#define RTC_DAT_PIN 4
+#define RTC_RST_PIN 5
+
+// ئەنجامەکانی تۆمار (Record) و ڕووش (View Mode)
+enum RecordType { LDR_RECORD = 0, CARD_RECORD = 1 };
+enum ViewMode { NORMAL_MODE, VIEW_LDR_RECORDS, VIEW_CARD_RECORDS };
+
+// ساختاری کات
+struct DateTime {
+  uint8_t second;
+  uint8_t minute;
+  uint8_t hour;
+  uint8_t day;
+  uint8_t month;
+  uint16_t year;
+  uint8_t dayOfWeek;
+};
+
+DateTime currentTime;
+
+// مۆدیوڵەکان
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+MFRC522 rfid(SS_PIN, RST_PIN);
+// دامەزراندنی RTC
+ThreeWire rtcWire(RTC_DAT_PIN, RTC_CLK_PIN, RTC_RST_PIN);
+RtcDS1302&lt;ThreeWire&gt; rtc(rtcWire);
+
+// پارامەتەرە سەنسۆر و تایمەکان
+const int LDR_THRESHOLD = 900;
+const unsigned long NFC_DISABLE_TIME = 30000;   // 30 چرکە (seconds)
+const unsigned long JOYSTICK_DELAY = 300;
+
+// دیاری کردنەوەی ئەندازەی تۆمارەکان لە EEPROM
+#define MAX_LDR_RECORDS 500
+#define MAX_CARD_RECORDS 500
+#define LDR_RECORDS_ADDR 2
+#define CARD_RECORDS_ADDR (LDR_RECORDS_ADDR + (MAX_LDR_RECORDS * sizeof(Record)))
+
+// ساختاری تۆمار (Record)
+struct Record {
+  uint8_t type;      // 0: LDR event, 1: Card event
+  uint8_t year;      // ساڵ بە دوو ژمارە (year - 2000)
+  uint8_t month;
+  uint8_t day;
+  uint8_t hour;
+  uint8_t minute;
+  uint8_t second;
+  char cardName[12]; // بۆ کارتەکان: ناو یان "unknown"؛ بۆ LDR بەتاڵ
+};
+
+// گۆڕاوەکانی تۆمار
+uint8_t totalLDRRecords = 0;
+uint8_t totalCardRecords = 0;
+int displayLDRIndex = 0;
+int displayCardIndex = 0;
+
+// گۆڕاوەکانی سیستەم
+boolean ldrDisabled = false;
+unsigned long disableStartTime = 0;
+boolean buzzerOn = false;
+unsigned long alertStartTime = 0;
+unsigned long lastTimeUpdate = 0;
+
+boolean laserBreak = false;
+boolean prevLaserBreak = false;
+
+int lastJoystickX = 512;
+int lastJoystickY = 512;
+boolean lastJoystickSW = HIGH;
+unsigned long lastJoystickMove = 0;
+
+ViewMode viewMode = NORMAL_MODE;
+
+// ساختاری NFC کارتەکان
+struct NFC_Card {
+  byte uid[4];
+  const char* name;
+};
+
+NFC_Card authorizedCards[] = {
+  { { 0x31, 0x6C, 0xA5, 0x0C }, "ibrahim" },
+  { { 0x60, 0x52, 0xCD, 0x14 }, "mutih" }
+};
+const int authorizedCardCount = sizeof(authorizedCards) / sizeof(authorizedCards[0]);
+
+// فانکشنی دانانی کاتی سیستەم - بۆ RTC DS1302
+void setRtcDateTime(uint8_t h, uint8_t m, uint8_t s, uint8_t d, uint8_t mon, uint16_t y, uint8_t dow) {
+  RtcDateTime dt(y, mon, d, h, m, s);
+  rtc.SetDateTime(dt);
+  
+  // هەروەها کاتی ئێستا نوێ بکەرەوە
+  currentTime.hour = h;
+  currentTime.minute = m;
+  currentTime.second = s;
+  currentTime.day = d;
+  currentTime.month = mon;
+  currentTime.year = y;
+  currentTime.dayOfWeek = dow;
+}
+
+// فانکشنی نوێکردنەوەی کات بە  RTC
+void updateTimeFromRTC() {
+  RtcDateTime now = rtc.GetDateTime();
+  
+  currentTime.second = now.Second();
+  currentTime.minute = now.Minute();
+  currentTime.hour = now.Hour();
+  currentTime.day = now.Day();
+  currentTime.month = now.Month();
+  currentTime.year = now.Year();
+  currentTime.dayOfWeek = now.DayOfWeek();
+}
+
+String getTimeStr() {
+  char buffer[9];
+  sprintf(buffer, "%02d:%02d:%02d", currentTime.hour, currentTime.minute, currentTime.second);
+  return String(buffer);
+}
+
+String getDateStr() {
+  char buffer[11];
+  sprintf(buffer, "%02d/%02d/%04d", currentTime.day, currentTime.month, currentTime.year);
+  return String(buffer);
+}
+
+// فانکشنی پشکنینی کارتەکانی ڕێگەپێدراو
+int getAuthorizedCardIndex(byte* uid, byte uidSize) {
+  for (int i = 0; i < authorizedCardCount; i++) {
+    bool match = true;
+    for (int j = 0; j < uidSize; j++) {
+      if (authorizedCards[i].uid[j] != uid[j]) {
+        match = false;
+        break;
+      }
+    }
+    if (match)
+      return i;
+  }
+  return -1;
+}
+
+// فانکشنی نمایش دۆخی سەرەکی
+void displayNormalMode() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Laser Security");
+  lcd.setCursor(0, 1);
+  lcd.print(getTimeStr());
+}
+
+// فانکشنی نمایش تۆمارەکان بە جۆری تۆمار (LDR یان کارتە)
+// بۆ LDR: سطرە یەک "LDR Rec N" و سطرە دووەم کاتی تۆمار.
+// بۆ کارتە: سطرە یەک "Card Rec N" و سطرە دووەم "Name: &lt;cardName&gt;".
+void displayRecord(int recordIndex, uint8_t recordType) {
+  Record rec;
+  int addr = 0;
+  if (recordType == LDR_RECORD) {
+    if (recordIndex >= totalLDRRecords) return;
+    addr = LDR_RECORDS_ADDR + (recordIndex * sizeof(Record));
+  } else if (recordType == CARD_RECORD) {
+    if (recordIndex >= totalCardRecords) return;
+    addr = CARD_RECORDS_ADDR + (recordIndex * sizeof(Record));
+  }
+  EEPROM.get(addr, rec);
+  
+  lcd.clear();
+  if(recordType == LDR_RECORD){
+    lcd.setCursor(0, 0);
+    lcd.print("LDR Rec ");
+    lcd.print(recordIndex + 1);
+    lcd.setCursor(0, 1);
+    char buffer[17];
+    sprintf(buffer, "%02d/%02d/%02d %02d:%02d", 
+            rec.day, rec.month, rec.year, rec.hour, rec.minute);
+    lcd.print(buffer);
+  } else {
+    lcd.setCursor(0, 0);
+    lcd.print("Card Rec ");
+    lcd.print(recordIndex + 1);
+    lcd.setCursor(0, 1);
+    lcd.print("Name: ");
+    lcd.print(rec.cardName);
+  }
+}
+
+// فانکشنی پاککردنەوەی هەموو تۆمارەکان لە EEPROM
+void clearRecords() {
+  for (int i = 0; i < MAX_LDR_RECORDS * sizeof(Record); i++) {
+    EEPROM.write(LDR_RECORDS_ADDR + i, 0);
+  }
+  for (int i = 0; i < MAX_CARD_RECORDS * sizeof(Record); i++) {
+    EEPROM.write(CARD_RECORDS_ADDR + i, 0);
+  }
+  totalLDRRecords = 0;
+  totalCardRecords = 0;
+  EEPROM.write(0, totalLDRRecords);
+  EEPROM.write(1, totalCardRecords);
+  
+  displayNormalMode();
+}
+
+void setup() {
+  Serial.begin(9600);
+  SPI.begin();
+  rfid.PCD_Init();
+  
+  lcd.init();
+  lcd.backlight();
+  lcd.print("System Starting");
+  
+  rtc.Begin();
+  
+  if (!rtc.IsDateTimeValid()) {
+    Serial.println("RTC lost power, set time!");
+    setRtcDateTime(12, 0, 0, 17, 3, 2025, 1);
+  } else {
+    Serial.println("RTC is working correctly.");
+    updateTimeFromRTC();
+  }
+  
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(JOYSTICK_SW_PIN, INPUT_PULLUP);
+  pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  digitalWrite(RED_LED_PIN, LOW);
+  digitalWrite(GREEN_LED_PIN, LOW);
+  
+  totalLDRRecords = EEPROM.read(0);
+  totalCardRecords = EEPROM.read(1);
+  
+  lcd.clear();
+  lcd.print("System Ready");
+  delay(1000);
+  
+  Serial.println("Laser security system with NFC and RTC started.");
+  Serial.print("Current Date: ");
+  Serial.println(getDateStr());
+  Serial.print("Current Time: ");
+  Serial.println(getTimeStr());
+  Serial.print("Total LDR records: ");
+  Serial.println(totalLDRRecords);
+  Serial.print("Total Card records: ");
+  Serial.println(totalCardRecords);
+  
+  displayNormalMode();
+}
+
+void loop() {
+  updateTimeFromRTC();
+  
+  if (ldrDisabled) {
+    if (millis() - disableStartTime >= NFC_DISABLE_TIME) {
+      ldrDisabled = false;
+      displayNormalMode();
+      digitalWrite(GREEN_LED_PIN, LOW);
+      Serial.println("System re-activated after timeout.");
+    } else {
+      unsigned long remainingSecs = (NFC_DISABLE_TIME - (millis() - disableStartTime)) / 1000;
+      if (millis() % 1000 < 50) {
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("System Disabled");
+        lcd.setCursor(0, 1);
+        lcd.print("Remaining: ");
+        lcd.print(remainingSecs);
+        lcd.print("s");
+      }
+    }
+  }
+  
+  if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {
+    Serial.print("Card detected: ");
+    for (byte i = 0; i < rfid.uid.size; i++) {
+      Serial.print(rfid.uid.uidByte[i] < 0x10 ? " 0" : " ");
+      Serial.print(rfid.uid.uidByte[i], HEX);
+    }
+    Serial.println();
+    
+    Record rec;
+    rec.year = currentTime.year - 2000;
+    rec.month = currentTime.month;
+    rec.day = currentTime.day;
+    rec.hour = currentTime.hour;
+    rec.minute = currentTime.minute;
+    rec.second = currentTime.second;
+    rec.type = CARD_RECORD;
+    
+    int authIndex = getAuthorizedCardIndex(rfid.uid.uidByte, rfid.uid.size);
+    if (authIndex != -1) {
+      strcpy(rec.cardName, authorizedCards[authIndex].name);
+      ldrDisabled = true;
+      disableStartTime = millis();
+      viewMode = NORMAL_MODE;
+      if (buzzerOn) {
+        buzzerOn = false;
+        noTone(BUZZER_PIN);
+      }
+      
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Access Granted");
+      lcd.setCursor(0, 1);
+      lcd.print("by ");
+      lcd.print(authorizedCards[authIndex].name);
+      digitalWrite(GREEN_LED_PIN, HIGH);
+      tone(BUZZER_PIN, 2000, 500);
+      delay(500);
+      Serial.print("Authorized card: ");
+      Serial.println(authorizedCards[authIndex].name);
+    } else {
+      strcpy(rec.cardName, "unknown");
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Access Denied");
+      lcd.setCursor(0, 1);
+      lcd.print("Invalid Card");
+      for (int i = 0; i < 2; i++) {
+        tone(BUZZER_PIN, 2000, 150);
+        delay(200);
+      }
+      delay(1000);
+      if (viewMode == NORMAL_MODE && !ldrDisabled)
+        displayNormalMode();
+    }
+    
+    if (totalCardRecords < MAX_CARD_RECORDS) {
+      int addr = CARD_RECORDS_ADDR + (totalCardRecords * sizeof(Record));
+      EEPROM.put(addr, rec);
+      totalCardRecords++;
+      EEPROM.write(1, totalCardRecords);
+    } else {
+      Serial.println("Card record storage full!");
+    }
+    
+    rfid.PICC_HaltA();
+    rfid.PCD_StopCrypto1();
+  }
+  
+  if (!ldrDisabled) {
+    int ldrValue = analogRead(LDR_PIN);
+    prevLaserBreak = laserBreak;
+    laserBreak = (ldrValue < LDR_THRESHOLD);
+    
+    if (laserBreak && !prevLaserBreak) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("ALERT!");
+      lcd.setCursor(0, 1);
+      String timeStr = getTimeStr();
+      String dateStr = getDateStr();
+      lcd.print(dateStr.substring(0, 5) + " " + timeStr);
+      
+      if (totalLDRRecords < MAX_LDR_RECORDS) {
+        Record rec;
+        rec.type = LDR_RECORD;
+        rec.year = currentTime.year - 2000;
+        rec.month = currentTime.month;
+        rec.day = currentTime.day;
+        rec.hour = currentTime.hour;
+        rec.minute = currentTime.minute;
+        rec.second = currentTime.second;
+        strcpy(rec.cardName, "");
+        int addr = LDR_RECORDS_ADDR + (totalLDRRecords * sizeof(Record));
+        EEPROM.put(addr, rec);
+        totalLDRRecords++;
+        EEPROM.write(0, totalLDRRecords);
+        Serial.print("New LDR record saved. Total LDR records: ");
+        Serial.println(totalLDRRecords);
+      } else {
+        Serial.println("LDR record storage full!");
+      }
+      
+      alertStartTime = millis();
+      buzzerOn = true;
+      digitalWrite(RED_LED_PIN, HIGH);
+      tone(BUZZER_PIN, 2000);
+      Serial.println("Laser break detected! Alert triggered.");
+    }
+    
+    if (buzzerOn && (millis() - alertStartTime > 10000)) {
+      buzzerOn = false;
+      noTone(BUZZER_PIN);
+      digitalWrite(RED_LED_PIN, LOW);
+      if (viewMode == NORMAL_MODE && !ldrDisabled)
+        displayNormalMode();
+    }
+  }
+  
+  int joystickX = analogRead(JOYSTICK_X_PIN);
+  int joystickY = analogRead(JOYSTICK_Y_PIN);
+  int joystickSW = digitalRead(JOYSTICK_SW_PIN);
+  unsigned long currentMillis = millis();
+  
+  if (joystickSW == LOW && lastJoystickSW == HIGH && (currentMillis - lastJoystickMove > JOYSTICK_DELAY)) {
+    lastJoystickMove = currentMillis;
+    if (viewMode == NORMAL_MODE) {
+      viewMode = VIEW_LDR_RECORDS;
+      displayLDRIndex = (totalLDRRecords > 0) ? totalLDRRecords - 1 : 0;
+      if (totalLDRRecords > 0)
+        displayRecord(displayLDRIndex, LDR_RECORD);
+      else {
+        lcd.clear();
+        lcd.print("No LDR Records");
+      }
+    } else if (viewMode == VIEW_LDR_RECORDS) {
+      viewMode = VIEW_CARD_RECORDS;
+      displayCardIndex = (totalCardRecords > 0) ? totalCardRecords - 1 : 0;
+      if (totalCardRecords > 0)
+        displayRecord(displayCardIndex, CARD_RECORD);
+      else {
+        lcd.clear();
+        lcd.print("No Card Records");
+      }
+    } else {
+      viewMode = NORMAL_MODE;
+      displayNormalMode();
+    }
+  }
+  
+  if (viewMode == VIEW_LDR_RECORDS && totalLDRRecords > 0 && (currentMillis - lastJoystickMove > JOYSTICK_DELAY)) {
+    if (joystickX < 200 && lastJoystickX >= 200) {
+      if (displayLDRIndex > 0) {
+        displayLDRIndex--;
+        displayRecord(displayLDRIndex, LDR_RECORD);
+        lastJoystickMove = currentMillis;
+      }
+    } else if (joystickX > 800 && lastJoystickX <= 800) {
+      if (displayLDRIndex < totalLDRRecords - 1) {
+        displayLDRIndex++;
+        displayRecord(displayLDRIndex, LDR_RECORD);
+        lastJoystickMove = currentMillis;
+      }
+    }
+  }
+  
+  if (viewMode == VIEW_CARD_RECORDS && totalCardRecords > 0 && (currentMillis - lastJoystickMove > JOYSTICK_DELAY)) {
+    if (joystickX < 200 && lastJoystickX >= 200) {
+      if (displayCardIndex > 0) {
+        displayCardIndex--;
+        displayRecord(displayCardIndex, CARD_RECORD);
+        lastJoystickMove = currentMillis;
+      }
+    } else if (joystickX > 800 && lastJoystickX <= 800) {
+      if (displayCardIndex < totalCardRecords - 1) {
+        displayCardIndex++;
+        displayRecord(displayCardIndex, CARD_RECORD);
+        lastJoystickMove = currentMillis;
+      }
+    }
+  }
+  
+  lastJoystickX = joystickX;
+  lastJoystickY = joystickY;
+  lastJoystickSW = joystickSW;
+  
+  if (viewMode == NORMAL_MODE && !ldrDisabled && !buzzerOn && (millis() % 5000 < 50)) {
+    displayNormalMode();
+  }
+  
+  delay(10);
+}
+
+                </pre>
+            </div>
+        </div>
+    </section>
+    
+    <section class="developer-section">
+        <div class="container">
+            <h2 class="section-title">گەشەپێدەری پڕۆژە</h2>
+            <div class="profile-card">
+                <img src="photo_2025-03-10_02-19-38.jpg" alt="Developer profile" class="profile-image">
+                <h3 class="profile-name">ئیبراهیم حسین</h3>
+                <p class="profile-contact">hamasuan@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://imxoshnawm.github.io/ibrahim_Portfolio/" class="cta-button" target="_blank">بینینی پۆرتفۆلیۆ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButton = document.getElementById('copyButton');
+            const codeContent = document.getElementById('codeContent');
+            
+            copyButton.addEventListener('click', function() {
+                // Get the text content
+                const codeText = codeContent.textContent || codeContent.innerText;
+                
+                navigator.clipboard.writeText(codeText.trim())
+                    .then(() => {
+                        const originalText = copyButton.textContent;
+                        copyButton.textContent = 'کۆپی کرا!';
+                        
+                        setTimeout(() => {
+                            copyButton.textContent = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy code:', err);
+                        alert('کێشەیەک هەیە لە کۆپی کردنی کۆدەکە');
+                    });
+            });
+            
+            // Simulate pictures if not available
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%23f0f0f0"/><text x="50%" y="50%" font-family="Arial" font-size="16" text-anchor="middle" fill="%23999">وێنە بەردەست نییە</text></svg>';
+                }
+            });
+            
+            // Simulate video if not available
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.onerror = function() {
+                    const parent = this.parentNode;
+                    const placeholder = document.createElement('div');
+                    placeholder.style.width = '80%';
+                    placeholder.style.maxWidth = '800px';
+                    placeholder.style.height = '400px';
+                    placeholder.style.margin = '0 auto';
+                    placeholder.style.backgroundColor = '#f0f0f0';
+                    placeholder.style.display = 'flex';
+                    placeholder.style.alignItems = 'center';
+                    placeholder.style.justifyContent = 'center';
+                    placeholder.style.borderRadius = '20px';
+                    placeholder.innerHTML = '<span style="color: #999;">ڤیدیۆ بەردەست نییە</span>';
+                    parent.replaceChild(placeholder, this);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
